@@ -41,7 +41,7 @@ public class Graph
 			root.oedge.add(new Edge(root, verticies.get(i)));
 	}
 	
-	public void getDepths()
+	public void getObjectCoords()
 	{
 		// Holds unvisited nodes
 		ArrayList<Vertex> queue = new ArrayList<Vertex>();
@@ -64,7 +64,6 @@ public class Graph
 			// Remove the node from the queue, if it is visited later on it will be added again and the change propageted.
 			queue.remove(0);
 		}
-		printDepths();
 		
 		// Get the max overall depth
 		int numLayers = 0;
@@ -118,14 +117,10 @@ public class Graph
 			System.out.printf("%d\t%d\t%d\n", v.id, v.minDepth, v.maxDepth);
 	}
 	
-	public void display()
+	public void display(JPanel panel)
 	{	  
-		getDepths();
-	    JFrame window = new JFrame("GUI Test");
-	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    window.add(new GraphDrawing(this, canvasSize));
-	    window.pack();
-	    window.setVisible(true);
+		getObjectCoords();
+		panel.add(new GraphDrawing(this, panel.getWidth()));
 	}
 	
 	
