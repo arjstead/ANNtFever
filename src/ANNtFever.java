@@ -1,4 +1,7 @@
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import rtneat.*;
 import ui.*;
 import ui.graphing.*;
@@ -14,5 +17,6 @@ public class ANNtFever
 		
 	    Genome g = Genome.getInitialisedGnome(4, 2);
 		Network n = new Network(g);
+
 	}
 }

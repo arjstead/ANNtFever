@@ -8,16 +8,18 @@ import javax.swing.JPanel;
 
 public class GraphDrawing extends JPanel
 {
-	int size;
+	int canvasSize;
 	Graph g;
 	
 	public GraphDrawing(Graph g, int size)
 	{
 		this.g = g;
+		this.canvasSize = size;
+		calcObjectCoords(g);
 	}
 	
     public Dimension getPreferredSize() {
-        return new Dimension(size,size);
+        return new Dimension(canvasSize,canvasSize);
     }
     
     public void paintComponent(Graphics graphics) 
@@ -101,5 +103,6 @@ public class GraphDrawing extends JPanel
 			e.ex = e.to.x;
 			e.ey = e.to.y;
 		}
+		
 	}
 }
