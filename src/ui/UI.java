@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.Scrollable;
 import javax.swing.border.Border;
 
+import physical.World;
 import rtneat.Genome;
 import rtneat.NNode;
 import rtneat.Network;
@@ -33,6 +34,7 @@ public class UI extends JFrame implements ActionListener
 	Canvas worldCanvas;
 	JPanel infoPanel;
 	JButton viewFittestButton;
+	public WorldPanel worldPanel;
 	
 	// Construct a new UI
 	public UI()
@@ -46,11 +48,9 @@ public class UI extends JFrame implements ActionListener
 		GridBagConstraints c = new GridBagConstraints();
 		
 		// world view canvas
-		JPanel worldPanel = new JPanel();
+		worldPanel = new WorldPanel();
 		worldPanel.setBorder(BorderFactory.createLineBorder(Color.black));		
-		worldCanvas = new Canvas();
-		worldCanvas.setSize(750, 750);
-		worldPanel.add(worldCanvas);
+		worldPanel.setSize(750, 750);
 		container.add(worldPanel);
 		
 		// data viewer
@@ -86,5 +86,10 @@ public class UI extends JFrame implements ActionListener
 		netdrawing.setBorder(BorderFactory.createLineBorder(Color.black));
 		frame.add(netdrawing);
 		frame.setVisible(true);
+	}
+	
+	public void drawWorld(JPanel worldDrawing)
+	{
+		
 	}
 }
