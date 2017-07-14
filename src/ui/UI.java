@@ -31,14 +31,19 @@ import java.awt.Color;
 public class UI extends JFrame implements ActionListener
 {
 	// UI elements
+	World world;
 	Canvas worldCanvas;
 	JPanel infoPanel;
 	JButton viewFittestButton;
 	public WorldPanel worldPanel;
 	
 	// Construct a new UI
-	public UI()
+	public UI(World w)
 	{
+		// Link the UI to a world
+		world = w;
+		world.ui = this;
+		
 		// Pre amble
 		setTitle("ANNtFever - (C) A Stead, 2017.");
 		Container container = getContentPane();

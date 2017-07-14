@@ -11,19 +11,14 @@ import ui.graphing.*;
 public class ANNtFever 
 {
 	public static void main(String[] args)
-	{
-		// Open UI t interact with the world
-		UI ui = new UI();
-		
+	{		
 		// Create a world for everything to exist in. Give it the panel to draw the world on.
-		World world = new World(ui.worldPanel);
+		World world = new World();
 		
-
+		// Open UI t interact with the world
+		UI ui = new UI(world);
 		
-		
-		
-	    Genome g = Genome.getInitialisedGnome(4, 2);
-		Network n = new Network(g);
-
+		// Start simulation
+		world.start();
 	}
 }

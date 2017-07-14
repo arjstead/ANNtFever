@@ -1,7 +1,9 @@
-package physical;
+package physical.annts;
 import rtneat.*;
 
 import java.util.ArrayList;
+
+import physical.World;
 
 public class ANNt 
 {
