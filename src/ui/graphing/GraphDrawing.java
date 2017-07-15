@@ -18,7 +18,8 @@ public class GraphDrawing extends JPanel
 		calcObjectCoords(g);
 	}
 	
-    public Dimension getPreferredSize() {
+    public Dimension getPreferredSize()
+    {
         return new Dimension(canvasSize,canvasSize);
     }
     

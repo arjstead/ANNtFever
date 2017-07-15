@@ -12,6 +12,7 @@ public class ANNt
 	int numInputs;
 	int numOutputs;
 	World w;
+	int x, y;
 	
 	int lifeRemaining;
 	
@@ -21,7 +22,7 @@ public class ANNt
 	// Outputs
 	ArrayList<Actuator> actuators = new ArrayList<Actuator>(); 
 	
-	public ANNt(Genome xg)
+	public ANNt(Genome xg, int x, int y)
 	{
 		g = xg;
 		nn = new Network(g);
@@ -29,11 +30,14 @@ public class ANNt
 		lifeRemaining = 1000000;
 		numInputs = 3;
 		numOutputs = 2;
-		sensors.add(new ChemoReceptor(0, nn, 0, 10));
-		sensors.add(new ChemoReceptor(1, nn, 0, -10));
-		sensors.add(new ChemoReceptor(2, nn, 10, 0));
-		actuators.add(new CatTrack(3, nn));
-		actuators.add(new CatTrack(4, nn));
+		//sensors.add(new ChemoReceptor(0, nn, 0, 10));
+	//	sensors.add(new ChemoReceptor(1, nn, 0, -10));
+	//	sensors.add(new ChemoReceptor(2, nn, 10, 0));
+	//	actuators.add(new CatTrack(3, nn));
+	//	actuators.add(new CatTrack(4, nn));
+		
+		this.x = x;
+		this.y = y;
 	}
 	
 	public void update()
@@ -55,6 +59,16 @@ public class ANNt
 	public void kill()
 	{
 		
+	}
+	
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
 	}
 	
 	

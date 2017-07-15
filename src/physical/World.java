@@ -2,7 +2,9 @@ package physical;
 import java.util.ArrayList;
 
 import physical.annts.ANNt;
+import physical.objects.BasicFoodBlock;
 import physical.objects.WorldObject;
+import rtneat.Genome;
 import ui.UI;
 
 
@@ -12,15 +14,26 @@ public class World
 	public UI ui;
 	
 	// List of World Objects
-	ArrayList<WorldObject> worldObjects = new ArrayList<WorldObject>();
+	public ArrayList<WorldObject> worldObjects = new ArrayList<WorldObject>();
 	
 	// List of organisms
-	ArrayList<ANNt> organisms = new ArrayList<ANNt>();
+	public ArrayList<ANNt> organisms = new ArrayList<ANNt>();
+	
+	// Dimensions
+	int width, height = 1000;
 	
 	// Set up
 	public void start()
 	{
+		// populate the world with some food
+		for(int i = 0; i < 50; i++)
+			worldObjects.add(new BasicFoodBlock((int) (Math.random()*1000), (int) (Math.random()*1000)));
 		
+		// populate the world with some ants
+		for(int i = 0; i < 20; i++)
+		{
+			organisms.add(new ANNt(Genome.getInitialisedGnome(5, 5), (int) (Math.random()*1000), (int) (Math.random()*1000)));
+		}
 		
 		// Finally run the simulation
 		run();
@@ -31,7 +44,7 @@ public class World
 	{
 		boolean loop = true;
 		while(loop)
-		{
+		{			
 			update();
 		}
 	}
@@ -52,7 +65,7 @@ public class World
 		ui.worldPanel.removeAll();
 		
 		// Paint components
-		
+		ui.worldPanel.repaint();
 		
 		// Revalidate JPanel
 		ui.worldPanel.revalidate();

@@ -31,7 +31,6 @@ import java.awt.Color;
 public class UI extends JFrame implements ActionListener
 {
 	// UI elements
-	World world;
 	Canvas worldCanvas;
 	JPanel infoPanel;
 	JButton viewFittestButton;
@@ -40,9 +39,8 @@ public class UI extends JFrame implements ActionListener
 	// Construct a new UI
 	public UI(World w)
 	{
-		// Link the UI to a world
-		world = w;
-		world.ui = this;
+		// Link UI and world
+		w.ui = this;
 		
 		// Pre amble
 		setTitle("ANNtFever - (C) A Stead, 2017.");
@@ -53,7 +51,7 @@ public class UI extends JFrame implements ActionListener
 		GridBagConstraints c = new GridBagConstraints();
 		
 		// world view canvas
-		worldPanel = new WorldPanel();
+		worldPanel = new WorldPanel(w);
 		worldPanel.setBorder(BorderFactory.createLineBorder(Color.black));		
 		worldPanel.setSize(750, 750);
 		container.add(worldPanel);
